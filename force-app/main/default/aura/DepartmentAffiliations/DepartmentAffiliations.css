@@ -1,0 +1,11 @@
+.THIS .slds-page-header {
+    background-color: white;
+}
+.THIS .thisContainer {
+    display: flex;
+    background-color: white;
+}
+.THIS .fixed {
+    width: 3em;
+    height: 3em;
+}

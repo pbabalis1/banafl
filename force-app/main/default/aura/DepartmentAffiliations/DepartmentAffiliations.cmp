@@ -1,0 +1,39 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 03-31-2022
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+
+    <aura:attribute name="acclist" type="List"/>
+    <aura:handler name="init" value="{!this}" action="{!c.invoke}"/>
+ 
+  
+--> 	
+<aura:component controller="DepartmentAffiliationController" implements="force:hasRecordId,flexipage:availableForRecordHome,force:hasSObjectName,force:appHostable">
+	<aura:attribute name="recordId" type="String" />
+    <aura:attribute name="departments" type="hed__Affiliation__c[]" />
+    <aura:attribute name="objectType" type="String" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <aura:if isTrue="{!v.departments.length > 0}">
+        <div class="container">
+            <div class="slds-page-header">
+                <div class="slds-media">
+                    <div class="slds-media__body">
+                        <div class="thisContainer">
+                            <aura:iteration var="dept" items="{!v.departments}">
+                                <div style="margin-right:1em;">
+                                    <div class="fixed" title="{!dept.hed__Account__r.Name}" >
+                                        <span><aura:unescapedHtml value="{!dept.hed__Account__r.Department_Icon__c}"/></span>
+                                    </div>
+                                </div>
+                            </aura:iteration>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aura:if>
+</aura:component>
